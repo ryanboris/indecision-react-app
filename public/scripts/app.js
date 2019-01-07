@@ -1,38 +1,68 @@
 'use strict';
 
-var App = React.createElement(
+var app = {
+  title: 'A title',
+  subtitle: 'A subtitle'
+};
+
+var template = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Hi!'
+    app.title
   ),
   React.createElement(
-    'h3',
+    'p',
     null,
-    'How are ya??!'
+    app.subtitle
+  ),
+  React.createElement(
+    'ol',
+    null,
+    React.createElement(
+      'li',
+      null,
+      'item 1'
+    ),
+    React.createElement(
+      'li',
+      null,
+      'item 2'
+    )
   )
 );
 
+var user = {
+  name: 'Ryan',
+  age: 24,
+  location: 'Ohio'
+};
+
+var userName = 'Ryan B.';
+var userAge = 27;
+var userLocation = 'Seattle';
 var Second = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    'Ryan Boris'
+    user.name
   ),
   React.createElement(
     'p',
     null,
-    'Age: 34'
+    'Age: ',
+    user.age
   ),
   React.createElement(
     'p',
     null,
-    'Location: PA'
+    'Location: ',
+    user.location
   )
 );
 
-ReactDOM.render(Second, document.getElementById('root'));
+ReactDOM.render(template, document.getElementById('root'));
