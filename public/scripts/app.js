@@ -2,7 +2,8 @@
 
 var app = {
   title: 'A title',
-  subtitle: 'A subtitle'
+  subtitle: 'A subtitle',
+  options: ['a', 'b', 'b']
 };
 
 var template = React.createElement(
@@ -13,11 +14,15 @@ var template = React.createElement(
     null,
     app.title
   ),
-  React.createElement(
-    'p',
+  app.subtitle && React.createElement(
+    'h1',
     null,
+    'Subtitle: ',
     app.subtitle
   ),
+  app.options.length > 0 ? 'Here are your options: ' + app.options.map(function (option) {
+    return option;
+  }) : 'No options',
   React.createElement(
     'ol',
     null,
@@ -36,7 +41,7 @@ var template = React.createElement(
 
 var user = {
   name: 'Ryan',
-  age: 24,
+  age: 23,
   location: 'New York'
 };
 
@@ -59,7 +64,7 @@ var Second = React.createElement(
     null,
     user.name ? user.name : 'Anonymous'
   ),
-  React.createElement(
+  user.age && user.age >= 18 && React.createElement(
     'p',
     null,
     'Age: ',
@@ -68,4 +73,4 @@ var Second = React.createElement(
   getLocation(user.location)
 );
 
-ReactDOM.render(Second, document.getElementById('root'));
+ReactDOM.render(template, document.getElementById('root'));

@@ -1,12 +1,18 @@
 const app = {
   title: 'A title',
-  subtitle: 'A subtitle'
+  subtitle: 'A subtitle',
+  options: ['a', 'b', 'b']
 }
 
 const template = (
   <div>
     <h1>{app.title}</h1>
-    <p>{app.subtitle}</p>
+    {app.subtitle && <h1>Subtitle: {app.subtitle}</h1>}
+    {app.options.length > 0
+      ? `Here are your options: ${app.options.map(option => {
+          return option
+        })}`
+      : 'No options'}
     <ol>
       <li>item 1</li>
       <li>item 2</li>
@@ -16,7 +22,7 @@ const template = (
 
 const user = {
   name: 'Ryan',
-  age: 24,
+  age: 23,
   location: 'New York'
 }
 
@@ -29,9 +35,9 @@ function getLocation(location) {
 const Second = (
   <div>
     <h1>{user.name ? user.name : 'Anonymous'}</h1>
-    <p>Age: {user.age}</p>
+    {user.age && user.age >= 18 && <p>Age: {user.age}</p>}
     {getLocation(user.location)}
   </div>
 )
 
-ReactDOM.render(Second, document.getElementById('root'))
+ReactDOM.render(template, document.getElementById('root'))
