@@ -8,11 +8,11 @@ const template = (
   <div>
     <h1>{app.title}</h1>
     {app.subtitle && <h1>Subtitle: {app.subtitle}</h1>}
+
     {app.options.length > 0
-      ? `Here are your options: ${app.options.map(option => {
-          return option
-        })}`
+      ? `Here are your options: ${app.options.map(option => option)}`
       : 'No options'}
+
     <ol>
       <li>item 1</li>
       <li>item 2</li>
