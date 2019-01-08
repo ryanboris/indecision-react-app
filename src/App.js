@@ -16,19 +16,23 @@ const template = (
 
 const user = {
   name: 'Ryan',
-  age: 24,
-  location: 'Ohio'
+  age: 24
 }
 
-const userName = 'Ryan B.'
-const userAge = 27
-const userLocation = 'Seattle'
+function getLocation(location) {
+  if (location) {
+    return location
+  } else {
+    return 'unknown'
+  }
+}
+
 const Second = (
   <div>
     <h1>{user.name}</h1>
     <p>Age: {user.age}</p>
-    <p>Location: {user.location}</p>
+    <p>Location: {getLocation(user.location)}</p>
   </div>
 )
 
-ReactDOM.render(template, document.getElementById('root'))
+ReactDOM.render(Second, document.getElementById('root'))
